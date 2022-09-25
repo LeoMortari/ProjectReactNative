@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Container } from "./styles";
+
+import Header from "./containers/Header";
+import Tracker from "./containers/Tracker";
+import { useState } from "react";
 
 export default function App() {
+  const [encomenda, setEncomenda] = useState([]);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Container>
+      <Header
+        user="Leonardo"
+        encomenda={encomenda}
+        setEncomenda={setEncomenda}
+      />
+      <Tracker encomenda={encomenda} />
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
